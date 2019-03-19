@@ -10,7 +10,7 @@ ENV PATH $PATH:/root/.meteor:$APP_SOURCE_DIR/node_modules/.bin
 # Because Docker Compose uses a named volume for node_modules and named volumes are owned
 # by root by default, we have to initially create node_modules here with correct owner.
 # Without this NPM cannot write packages into node_modules later, when running in a container.
-
+RUN apt-get update && apt-get install -y python
 RUN git clone https://github.com/reactioncommerce/reaction.git . &&\
     mkdir node_modules &&\
     meteor npm install 
