@@ -20,16 +20,16 @@ RUN git clone https://github.com/reactioncommerce/reaction.git . &&\
 ##############################################################################
 # builder stage - builds the production bundle
 ##############################################################################
-FROM meteor-dev as builder
+# FROM meteor-dev as builder
 
-RUN printf "\\n[-] Running Reaction plugin loader...\\n" \
-    && reaction plugins load
-RUN printf "\\n[-] Building Meteor application...\\n" \
-    && meteor build --server-only --architecture os.linux.x86_64 --directory "$APP_BUNDLE_DIR"
+# RUN printf "\\n[-] Running Reaction plugin loader...\\n" \
+#     && reaction plugins load
+# RUN printf "\\n[-] Building Meteor application...\\n" \
+#     && meteor build --server-only --architecture os.linux.x86_64 --directory "$APP_BUNDLE_DIR"
 
-WORKDIR $APP_BUNDLE_DIR/bundle/programs/server/
+# WORKDIR $APP_BUNDLE_DIR/bundle/programs/server/
 
-RUN meteor npm install --production
+# RUN meteor npm install --production
 
 # 
 # ##############################################################################
